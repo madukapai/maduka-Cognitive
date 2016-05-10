@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.pic2 = new System.Windows.Forms.PictureBox();
             this.txtPic1 = new System.Windows.Forms.TextBox();
@@ -35,8 +36,10 @@
             this.btnOpenPic1 = new System.Windows.Forms.Button();
             this.btnOpenPic2 = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
-            this.lblResult = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtFace1Guid = new System.Windows.Forms.TextBox();
+            this.txtFace2Guid = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +49,7 @@
             this.pic1.Location = new System.Drawing.Point(12, 12);
             this.pic1.Name = "pic1";
             this.pic1.Size = new System.Drawing.Size(298, 259);
+            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic1.TabIndex = 0;
             this.pic1.TabStop = false;
             // 
@@ -54,6 +58,7 @@
             this.pic2.Location = new System.Drawing.Point(316, 12);
             this.pic2.Name = "pic2";
             this.pic2.Size = new System.Drawing.Size(298, 259);
+            this.pic2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic2.TabIndex = 1;
             this.pic2.TabStop = false;
             // 
@@ -93,37 +98,51 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(12, 305);
+            this.btnSend.Location = new System.Drawing.Point(12, 331);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(602, 23);
             this.btnSend.TabIndex = 5;
-            this.btnSend.Text = "Send";
+            this.btnSend.Text = "Send Verify";
             this.btnSend.UseVisualStyleBackColor = true;
-            // 
-            // lblResult
-            // 
-            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblResult.Location = new System.Drawing.Point(12, 331);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(602, 23);
-            this.lblResult.TabIndex = 6;
-            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txtFace1Guid
+            // 
+            this.txtFace1Guid.Enabled = false;
+            this.txtFace1Guid.Location = new System.Drawing.Point(12, 303);
+            this.txtFace1Guid.Name = "txtFace1Guid";
+            this.txtFace1Guid.Size = new System.Drawing.Size(298, 22);
+            this.txtFace1Guid.TabIndex = 2;
+            // 
+            // txtFace2Guid
+            // 
+            this.txtFace2Guid.Enabled = false;
+            this.txtFace2Guid.Location = new System.Drawing.Point(316, 303);
+            this.txtFace2Guid.Name = "txtFace2Guid";
+            this.txtFace2Guid.Size = new System.Drawing.Size(298, 22);
+            this.txtFace2Guid.TabIndex = 3;
             // 
             // frmFaceVerify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 372);
-            this.Controls.Add(this.lblResult);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.btnOpenPic2);
             this.Controls.Add(this.btnOpenPic1);
+            this.Controls.Add(this.txtFace2Guid);
             this.Controls.Add(this.txtPic2);
+            this.Controls.Add(this.txtFace1Guid);
             this.Controls.Add(this.txtPic1);
             this.Controls.Add(this.pic2);
             this.Controls.Add(this.pic1);
@@ -145,7 +164,9 @@
         private System.Windows.Forms.Button btnOpenPic1;
         private System.Windows.Forms.Button btnOpenPic2;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtFace1Guid;
+        private System.Windows.Forms.TextBox txtFace2Guid;
     }
 }
